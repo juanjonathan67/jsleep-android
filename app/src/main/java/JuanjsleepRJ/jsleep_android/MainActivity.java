@@ -3,7 +3,6 @@ package JuanjsleepRJ.jsleep_android;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.view.Menu;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -16,11 +15,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import android.graphics.Color;
 import android.os.Bundle;
-import android.view.MenuInflater;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.view.MenuItem;
+import android.widget.*;
+import android.view.*;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -68,7 +67,19 @@ public class MainActivity extends AppCompatActivity {
             Room[] acc = gson.fromJson(reader, Room[].class);
             Collections.addAll(roomList, acc);
             nameList = getName(roomList);
-            ArrayAdapter<String> itemAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nameList);
+            ArrayAdapter<String> itemAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nameList){
+                @Override
+                public View getView(int position, View convertView, ViewGroup parent) {
+                    View view =super.getView(position, convertView, parent);
+
+                    TextView textView=(TextView) view.findViewById(android.R.id.text1);
+
+                    /*YOUR CHOICE OF COLOR*/
+                    textView.setTextColor(Color.BLACK);
+
+                    return view;
+                }
+            };
             listView.setAdapter(itemAdapter);
         } catch (Exception e) {
             e.printStackTrace();
