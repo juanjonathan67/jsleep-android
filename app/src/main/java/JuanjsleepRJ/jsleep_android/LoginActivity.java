@@ -25,6 +25,8 @@ public class LoginActivity extends AppCompatActivity{
     EditText username, password;
     Context mContext;
 
+    public static Account savedAccount;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +42,7 @@ public class LoginActivity extends AppCompatActivity{
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Account account = requestAccount();
+                Account account = requestLogin();
                 Intent move = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(move);
                 Toast.makeText(LoginActivity.this, "Login Success!", Toast.LENGTH_SHORT).show();
@@ -57,20 +59,36 @@ public class LoginActivity extends AppCompatActivity{
         });
     }
 
-    protected Account requestAccount(){
-        mApiService.getAccount(0).enqueue(new Callback<Account>(){
+//    protected Account requestAccount(){
+//        mApiService.getAccount(0).enqueue(new Callback<Account>(){
+//            @Override
+//            public void onResponse(Call<Account> call, Response<Account> response){
+//                if(response.isSuccessful()){
+//                    Account account;
+//                    account = response.body();
+//                    System.out.println(account.toString());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Account> call, Throwable t){
+//                Toast.makeText(mContext, "no account id=0", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        return null;
+//    }
+
+    protected Account requestLogin(){
+        mApiService.requestLogin(username.getText().toString(), password.getText().toString()).enqueue(new Callback<Account>() {
             @Override
-            public void onResponse(Call<Account> call, Response<Account> response){
-                if(response.isSuccessful()){
-                    Account account;
-                    account = response.body();
-                    System.out.println(account.toString());
-                }
+            public void onResponse(Call<Account> call, Response<Account> response) {
+                savedAccount = response.body();
+                System.out.println(savedAccount.toString());
             }
 
             @Override
-            public void onFailure(Call<Account> call, Throwable t){
-                Toast.makeText(mContext, "no account id=0", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<Account> call, Throwable t) {
+                Toast.makeText(mContext, "Password atau email salah", Toast.LENGTH_SHORT).show();
             }
         });
         return null;
