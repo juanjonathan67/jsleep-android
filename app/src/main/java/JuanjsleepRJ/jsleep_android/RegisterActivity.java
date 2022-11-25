@@ -45,15 +45,21 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     protected Account requestRegister(){
-        mApiService.requestRegister(username.getText().toString(), email.getText().toString(), password.getText().toString()).enqueue(new Callback<Account>() {
+        mApiService.requestRegister(
+                username.getText().toString(),
+                email.getText().toString(),
+                password.getText().toString()
+        ).enqueue(new Callback<Account>() {
             @Override
             public void onResponse(Call<Account> call, Response<Account> response) {
                 Account account = response.body();
                 System.out.println(account);
+                Toast.makeText(mContext, "Account successfully registered!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<Account> call, Throwable t) {
+//                t.printStackTrace();
                 Toast.makeText(mContext, "Account already registered!", Toast.LENGTH_SHORT).show();
 
             }

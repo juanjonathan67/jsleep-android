@@ -7,7 +7,7 @@ public class Room extends Serializable{
     public int accountId;
     public int size;
     public String name;
-    public Facility facility;
+    public ArrayList<Facility> facility = new ArrayList<Facility>();
     public Price price;
     public String address;
     public City city;

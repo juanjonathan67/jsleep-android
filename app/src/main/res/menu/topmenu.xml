@@ -15,7 +15,7 @@
         app:actionViewClass="androidx.appcompat.widget.AppCompatImageView"
         app:showAsAction="always|collapseActionView" />
     <item
-        android:id="@+id/add_account"
+        android:id="@+id/add_room"
         android:icon="@drawable/ic_baseline_add_box_24"
         android:title="Add Account"
         app:actionViewClass="androidx.appcompat.widget.AppCompatImageView"

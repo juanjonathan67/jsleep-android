@@ -43,9 +43,6 @@ public class LoginActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 Account account = requestLogin();
-                Intent move = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(move);
-                Toast.makeText(LoginActivity.this, "Login Success!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -54,7 +51,6 @@ public class LoginActivity extends AppCompatActivity{
             public void onClick(View view) {
                 Intent move = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(move);
-
             }
         });
     }
@@ -83,7 +79,11 @@ public class LoginActivity extends AppCompatActivity{
             @Override
             public void onResponse(Call<Account> call, Response<Account> response) {
                 savedAccount = response.body();
+                Intent move = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(move);
+                Toast.makeText(LoginActivity.this, "Login Success!", Toast.LENGTH_SHORT).show();
                 System.out.println(savedAccount.toString());
+
             }
 
             @Override

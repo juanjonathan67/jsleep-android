@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutMe">
+    tools:context=".AboutMeActivity">
 
     <TextView
         android:id="@+id/account_details"
@@ -29,7 +29,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="13dp"
         android:text="Name"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/account_name_2"
         app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="28dp"
         android:text="Juan"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/account_name" />
 
@@ -53,7 +53,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="25dp"
         android:text="Email"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/account_email"
         app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +66,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="28dp"
         android:text="juan@gmail.com"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/account_name_2" />
 
@@ -77,7 +77,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="28dp"
         android:text="Balance"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
         android:text="0.0"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView7" />
 
@@ -122,4 +122,169 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/top_up_amount"
         app:layout_constraintTop_toBottomOf="@+id/account_balance" />
+
+    <RelativeLayout
+        android:id="@+id/RenterLayout"
+        android:layout_width="422dp"
+        android:layout_height="347dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_up_amount"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/registerFormLayout"
+            android:layout_width="320dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:elevation="0dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editTextRenterName"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Name"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/editTextRenterAddress"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Address"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/editTextRenterPhone"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Phone Number"
+                android:inputType="phone" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/cancelFormButton"
+            android:layout_width="111dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="250dp"
+            android:layout_marginBottom="50dp"
+            android:elevation="0dp"
+            android:text="Cancel" />
+
+        <Button
+            android:id="@+id/registerFormButton"
+            android:layout_width="116dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="225dp"
+            android:layout_marginTop="250dp"
+            android:layout_marginBottom="50dp"
+            android:elevation="0dp"
+            android:text="Register" />
+
+        <Button
+            android:id="@+id/registerRenterButton"
+            android:layout_width="250dip"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="85dp"
+            android:layout_marginBottom="280dp"
+            android:elevation="1dp"
+            android:text="REGISTER RENTER" />
+
+        <RelativeLayout
+            android:id="@+id/RenterNotNull"
+            android:layout_width="310dp"
+            android:layout_height="267dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:elevation="2dp">
+
+            <TextView
+                android:id="@+id/textViewRenterAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:elevation="2dp"
+                android:text="Address"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/textViewRenterName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:elevation="2dp"
+                android:text="TextView"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/textViewRenterAddress2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:elevation="2dp"
+                android:text="TextView"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewRenterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:elevation="2dp"
+                android:text="Name"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/textViewRenterPhone2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="200dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:elevation="2dp"
+                android:text="TextView"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewRenterPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="200dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:elevation="2dp"
+                android:text="Phone Number"
+                android:textSize="16dp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
