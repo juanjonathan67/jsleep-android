@@ -20,13 +20,37 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Activity which controls login activity
+ * @author juanjonathan67
+ * @version 1.0.0
+ */
 public class LoginActivity extends AppCompatActivity{
+    /**
+     * {@link JuanjsleepRJ.jsleep_android.request.BaseApiService} attribute
+     */
     BaseApiService mApiService;
-    EditText username, password;
+    /**
+     * Editable text view for entering username
+     */
+    EditText username;
+    /**
+     * Editable text view for entering password
+     */
+    EditText password;
+    /**
+     * Context of activity
+     */
     Context mContext;
-
+    /**
+     * {@link JuanjsleepRJ.jsleep_android.model.Account} used for login
+     */
     public static Account savedAccount;
 
+    /**
+     * Create activity
+     * @param savedInstanceState Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,25 +79,11 @@ public class LoginActivity extends AppCompatActivity{
         });
     }
 
-//    protected Account requestAccount(){
-//        mApiService.getAccount(0).enqueue(new Callback<Account>(){
-//            @Override
-//            public void onResponse(Call<Account> call, Response<Account> response){
-//                if(response.isSuccessful()){
-//                    Account account;
-//                    account = response.body();
-//                    System.out.println(account.toString());
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<Account> call, Throwable t){
-//                Toast.makeText(mContext, "no account id=0", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        return null;
-//    }
-
+    /**
+     * Method used to make GET request with implemented method {@link JuanjsleepRJ.jsleep_android.request.BaseApiService#requestLogin(String, String)}.
+     * Checks if email and password are correct, then saves the account at {@link JuanjsleepRJ.jsleep_android.LoginActivity#savedAccount}.
+     * @return null
+     */
     protected Account requestLogin(){
         mApiService.requestLogin(username.getText().toString(), password.getText().toString()).enqueue(new Callback<Account>() {
             @Override
@@ -88,6 +98,7 @@ public class LoginActivity extends AppCompatActivity{
 
             @Override
             public void onFailure(Call<Account> call, Throwable t) {
+                t.printStackTrace();
                 Toast.makeText(mContext, "Password atau email salah", Toast.LENGTH_SHORT).show();
             }
         });

@@ -1,5 +1,8 @@
 package JuanjsleepRJ.jsleep_android.model;
 
+/**
+ * Enum of Cities
+ */
 public enum City {
     SURABAYA,
     DEPOK,

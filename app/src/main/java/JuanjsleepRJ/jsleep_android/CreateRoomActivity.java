@@ -27,18 +27,43 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
+/**
+ * Activity which controls creating rooms
+ * @author juanjonathan67
+ * @version 1.0.0
+ */
 public class CreateRoomActivity extends AppCompatActivity {
+    /**
+     * {@link JuanjsleepRJ.jsleep_android.request.BaseApiService} attribute
+     */
     BaseApiService mApiService;
+    /**
+     * Context of activity
+     */
     Context mContext;
+    /**
+     * Editable text view for the room details to be created
+     */
     EditText roomName, roomPrice, roomAddress, roomSize;
+    /**
+     * Checkboxes for the room's {@link JuanjsleepRJ.jsleep_android.model.Facility}
+     */
     CheckBox checkBoxAC, checkBoxRefrigerator, checkBoxWiFi,
     checkBoxBathtub, checkBoxBalcony, checkBoxRestaurant,
     checkBoxSwimPool, checkBoxFitCenter;
+    /**
+     * The {@link JuanjsleepRJ.jsleep_android.model.City} of the room
+     */
     City city;
+    /**
+     * The {@link JuanjsleepRJ.jsleep_android.model.BedType} of the room
+     */
     BedType bedType;
-    ArrayList<Facility> facilities = new ArrayList<Facility>();
 
+    /**
+     * Create activity
+     * @param savedInstanceState Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +85,6 @@ public class CreateRoomActivity extends AppCompatActivity {
         checkBoxFitCenter = findViewById(R.id.checkBoxFitCenter);
 
         Button createRoomButton = findViewById(R.id.createRoomButton);
-        Button cancelCreateRoomButton = findViewById(R.id.cancelCreateRoomButton);
 
         Spinner spinnerCity = (Spinner) findViewById(R.id.spinnerCity);
         ArrayAdapter<City> cityList = new ArrayAdapter<City>(
@@ -79,6 +103,7 @@ public class CreateRoomActivity extends AppCompatActivity {
         spinnerBedType.setAdapter(bedTypeList);
 
         createRoomButton.setOnClickListener(new View.OnClickListener() {
+            ArrayList<Facility> facilities = new ArrayList<>();
             @Override
             public void onClick(View view) {
                 if(checkBoxAC.isChecked())
@@ -100,26 +125,23 @@ public class CreateRoomActivity extends AppCompatActivity {
                 city = (City) spinnerCity.getSelectedItem();
                 bedType = (BedType) spinnerBedType.getSelectedItem();
 
-                Room room = requestCreateRoom();
-            }
-        });
-
-        cancelCreateRoomButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent move = new Intent(CreateRoomActivity.this, MainActivity.class);
-                startActivity(move);
+                requestCreateRoom(facilities);
             }
         });
     }
 
-    protected Room requestCreateRoom(){
+    /**
+     * Method used to make POST request with implemented method {@link JuanjsleepRJ.jsleep_android.request.BaseApiService#requestCreateRoom(int, String, int, int, ArrayList, City, BedType, String)}.
+     * @param facilities List of {@link JuanjsleepRJ.jsleep_android.model.Facility}  of the room
+     * @return null
+     */
+    protected Room requestCreateRoom(ArrayList<Facility> facilities){
         mApiService.requestCreateRoom(
-                LoginActivity.savedAccount.id,
+                LoginActivity.savedAccount.renter.id,
                 roomName.getText().toString(),
                 Integer.parseInt(roomSize.getText().toString()),
                 Integer.parseInt(roomPrice.getText().toString()),
-                this.facilities,
+                facilities,
                 this.city,
                 this.bedType,
                 roomAddress.getText().toString()
@@ -138,5 +160,14 @@ public class CreateRoomActivity extends AppCompatActivity {
             }
         });
         return null;
+    }
+
+    /**
+     * Method to destroy activity when back button is pressed and return to {@link JuanjsleepRJ.jsleep_android.MainActivity}.
+     */
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(CreateRoomActivity.this, MainActivity.class));
+        finish();
     }
 }

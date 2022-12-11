@@ -3,21 +3,38 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/search_button"
-        android:icon="@drawable/ic_baseline_search_24"
-        android:title="Search Button"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="always|collapseActionView" />
-    <item
         android:id="@+id/account_button"
+        android:enabled="true"
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="Account Button"
+        android:title="Account Profile"
+        android:visible="true"
         app:actionViewClass="androidx.appcompat.widget.AppCompatImageView"
         app:showAsAction="always|collapseActionView" />
     <item
         android:id="@+id/add_room"
+        android:enabled="true"
         android:icon="@drawable/ic_baseline_add_box_24"
-        android:title="Add Account"
+        android:title="Create Room"
+        android:visible="true"
         app:actionViewClass="androidx.appcompat.widget.AppCompatImageView"
         app:showAsAction="always|collapseActionView" />
+
+    <item
+        android:id="@+id/payments"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_payment_24"
+        android:title="Payments List"
+        android:visible="true"
+        app:actionViewClass="androidx.appcompat.widget.AppCompatImageView"
+        app:showAsAction="always|collapseActionView" />
+
+    <item
+        android:id="@+id/rooms"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_single_bed_24"
+        android:title="Your Rooms"
+        android:visible="true"
+        app:actionViewClass="androidx.appcompat.widget.AppCompatImageView"
+        app:showAsAction="always|collapseActionView" />
+
 </menu>

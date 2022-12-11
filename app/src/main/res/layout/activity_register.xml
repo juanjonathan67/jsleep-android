@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/app_background_9"
     tools:context=".RegisterActivity">
 
     <EditText
@@ -19,7 +19,6 @@
         android:hint="Name"
         android:inputType="textPersonName|text|textEmailAddress"
         android:textColor="#000000"
-        android:textColorHint="#AEA9A9"
         app:layout_constraintBottom_toTopOf="@+id/editTextRegisterEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +36,6 @@
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:textColor="#000000"
-        android:textColorHint="#AEA9A9"
         app:layout_constraintBottom_toTopOf="@+id/editTextRegisterPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +53,6 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:textColor="#000000"
-        android:textColorHint="#AEA9A9"
         app:layout_constraintBottom_toTopOf="@+id/RegisterConfirmButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

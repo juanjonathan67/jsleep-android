@@ -1,5 +1,11 @@
 package JuanjsleepRJ.jsleep_android.model;
 
+/**
+ * Serializable class
+ */
 public class Serializable {
-    public final int id = 0;
+    /**
+     * Id of object
+     */
+    public int id;
 }
